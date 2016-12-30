@@ -1,7 +1,7 @@
-let username = 'AYang'
-let password = 'ayang'
-let baseJiraUrl = 'jira.edudyn.com'
-let loginStr = 'http://jira.edudyn.com/login.jsp?os_username=' + username +
+let username = ''
+let password = ''
+let baseJiraUrl = ''
+let loginStr = baseJiraUrl + '/login.jsp?os_username=' + username +
     '&os_password=' + password + '&os_destination=/TempoUserBoard!timesheet.jspa&user_role=&atl_token=&login=Log+In'
 let timeSheetURL = baseJiraUrl + '/TempoUserBoard!timesheet.jspa'
 
