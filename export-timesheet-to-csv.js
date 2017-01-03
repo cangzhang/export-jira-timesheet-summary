@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name         Export JIRA Timesheet Summary
-// @namespace    http://tampermonkey.net/
+// @namespace    undefined
 // @version      0.1
-// @description  try to take over the world!
+// @license      MIT
+// @description  Export Timesheet Summary to CSV.
 // @author       Allen Zhang
 // @match        http://jira.edudyn.com/secure/TempoUserBoard!timesheet.jspa*
 // @grant        none
@@ -21,7 +22,7 @@
     let exportbtn = '<div id="export2xlsBtn" class="add-buttons-container" style="padding-left: 30px;"><a id="tempo-add-button" name="tempo-add-button" class="open-dialog tempo-log-work-button aui-button aui-button-primary" href="#">Export to XLS</a></div>';
     $('#stalker > div > div.command-bar > div > div > div.tt-header-items-container.aui-group > div.tt-item-right.aui-item').append(exportbtn);
 
-    $('#export2xlsBtn').on("click", ()=> {
+    $('#export2xlsBtn').on("click", () => {
         let work = [];
         $('table#issuetable:eq(0) tbody tr').each((index, dom) => {
             let obj = {};
@@ -43,8 +44,10 @@
             day = '' + d.getDate(),
             year = d.getFullYear();
 
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
+        if (month.length < 2)
+            month = '0' + month;
+        if (day.length < 2)
+            day = '0' + day;
 
         return [year, month, day].join('/');
     }
@@ -55,9 +58,9 @@
         let csvHeader = {};
         //Set Report title in first row or line
 
-        for(let prop in arrData[0]) {
+        for (let prop in arrData[0]) {
             if (arrData[0].hasOwnProperty(prop)) {
-              CSV += prop + ',';
+                CSV += prop + ',';
             }
         }
         CSV += '\r';
