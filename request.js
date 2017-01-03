@@ -12,7 +12,8 @@ function onRequest() {
             "password": userInfo.password
         }
     }, (err, response, body) => {
-        if (err) throw err
+        if (err)
+            throw err
         console.log('Server responded with:', body);
         let session = body.session
         getTimeSheet(session)
@@ -22,10 +23,12 @@ function onRequest() {
 function getTimeSheet(cookie) {
     request.get(timeSheetURL, {
         headers: {
-            Cookie: cookie.name + '=' + cookie.value
+            'Cookie': cookie.name + '=' + cookie.value,
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36'
         }
     }, (err, response, body) => {
-        if (err) throw error
+        if (err)
+            throw err
         console.log(body)
     })
 }
