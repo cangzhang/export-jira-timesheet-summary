@@ -19,7 +19,7 @@
         lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     let period = formatDate(firstDay) + ' - ' + formatDate(lastDay);
 
-    let exportbtn = '<div id="export2xlsBtn" class="add-buttons-container" style="padding-left: 30px;"><a name="tempo-add-button" class="open-dialog tempo-log-work-button aui-button aui-button-primary" href="#">Export to CSV</a></div>';
+    let exportbtn = '<div id="export2xlsBtn" class="add-buttons-container" style="margin-left: 30px;"><a name="tempo-add-button" class="open-dialog tempo-log-work-button aui-button aui-button-primary" href="#">Export to CSV</a></div>';
     $('#stalker > div > div.command-bar > div > div > div.tt-header-items-container.aui-group > div.tt-item-right.aui-item').append(exportbtn);
 
     $('#export2xlsBtn').on("click", () => {
@@ -30,7 +30,7 @@
             let firstTd = $(dom).find('td.issuekey');
 
             obj.Period = period;
-            obj.Woker = worker;
+            obj.Worker = worker;
             obj.Hours = parseFloat($(hourTd).text().trim());
             obj.Ticket = $(firstTd).find('a[title]').text().trim();
             work.push(obj);
