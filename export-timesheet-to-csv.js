@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Export JIRA Timesheet Summary To CSV
 // @namespace    undefined
-// @version      0.4
+// @version      0.5
 // @license      MIT
 // @description  Export Timesheet Summary to CSV.
 // @author       Allen Zhang
